@@ -4,17 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tu Nombre | Producer & Game Designer</title>
+
   <style>
     :root {
-      --bg: #f7f2ea;
-      --paper: #fffaf2;
-      --ink: #26211d;
-      --muted: #71675f;
-      --accent: #d97941;
-      --accent-dark: #9e4f2b;
-      --soft: #ead8c6;
-      --card: #fffdf8;
-      --shadow: rgba(38, 33, 29, 0.12);
+      --bg: #03070d;
+      --bg-soft: #07111f;
+      --white: #ffffff;
+      --text: #d7dde8;
+      --muted: #8b95a7;
+      --blue: #2f8cff;
+      --blue-soft: #67b7ff;
+      --line: rgba(255, 255, 255, 0.12);
+      --card: rgba(255, 255, 255, 0.045);
+      --card-strong: rgba(255, 255, 255, 0.075);
     }
 
     * {
@@ -23,11 +25,19 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Inter, Arial, sans-serif;
-      background: radial-gradient(circle at top left, #ffe0c2 0, transparent 32%), var(--bg);
-      color: var(--ink);
-      line-height: 1.6;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 72% 22%, rgba(47, 140, 255, 0.18), transparent 32%),
+        radial-gradient(circle at 18% 80%, rgba(47, 140, 255, 0.09), transparent 30%),
+        var(--bg);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
     a {
@@ -36,539 +46,769 @@
     }
 
     .container {
-      width: min(1120px, 90%);
+      width: min(1180px, 90%);
       margin: 0 auto;
     }
 
+    /* NAV */
     header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(3, 7, 13, 0.82);
+      backdrop-filter: blur(18px);
       position: sticky;
       top: 0;
-      z-index: 10;
-      backdrop-filter: blur(16px);
-      background: rgba(247, 242, 234, 0.82);
-      border-bottom: 1px solid rgba(38, 33, 29, 0.08);
+      z-index: 20;
     }
 
     nav {
+      min-height: 82px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 18px 0;
+      justify-content: space-between;
     }
 
-    .logo {
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      font-size: 1.2rem;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-box {
+      width: 54px;
+      height: 54px;
+      border: 2px solid var(--blue);
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--blue-soft);
+      letter-spacing: -0.08em;
+    }
+
+    .brand h1 {
+      font-size: 1.05rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .brand p {
+      font-size: 0.72rem;
+      color: var(--blue-soft);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-top: 4px;
     }
 
     .nav-links {
       display: flex;
-      gap: 22px;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    .nav-links a:hover {
-      color: var(--accent-dark);
-    }
-
-    .hero {
-      padding: 90px 0 70px;
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 48px;
+      gap: 42px;
       align-items: center;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.12em;
     }
 
-    .tag {
-      display: inline-flex;
-      padding: 8px 14px;
-      border: 1px solid var(--soft);
-      border-radius: 999px;
-      color: var(--accent-dark);
-      background: rgba(255, 250, 242, 0.75);
-      font-weight: 700;
-      font-size: 0.85rem;
+    .nav-links a {
+      color: var(--text);
+      position: relative;
+      padding: 32px 0;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+      color: var(--blue-soft);
+    }
+
+    .nav-links .active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 18px;
+      width: 100%;
+      height: 2px;
+      background: var(--blue);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: calc(100vh - 82px);
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: center;
+      gap: 54px;
+      padding: 72px 0 42px;
+    }
+
+    .hero-copy {
+      max-width: 590px;
+    }
+
+    .eyebrow {
+      color: var(--blue-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      font-weight: 900;
       margin-bottom: 22px;
     }
 
-    h1 {
-      font-size: clamp(2.5rem, 6vw, 5.2rem);
-      line-height: 0.96;
+    .hero-title {
+      font-size: clamp(3.4rem, 8vw, 6.7rem);
+      line-height: 0.88;
       letter-spacing: -0.07em;
-      margin-bottom: 24px;
-    }
-
-    .hero p {
-      max-width: 640px;
-      color: var(--muted);
-      font-size: 1.08rem;
-      margin-bottom: 30px;
-    }
-
-    .hero-actions,
-    .socials {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 18px;
-      border-radius: 14px;
-      font-weight: 800;
-      border: 1px solid transparent;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px var(--shadow);
-    }
-
-    .primary {
-      background: var(--ink);
-      color: white;
-    }
-
-    .secondary {
-      background: var(--paper);
-      border-color: var(--soft);
-      color: var(--ink);
-    }
-
-    .profile-card {
-      background: var(--paper);
-      border: 1px solid var(--soft);
-      border-radius: 32px;
-      padding: 28px;
-      box-shadow: 0 24px 80px var(--shadow);
-      transform: rotate(1.5deg);
-    }
-
-    .avatar {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      border-radius: 26px;
-      background: linear-gradient(135deg, #2b2520, #d97941);
-      display: grid;
-      place-items: center;
-      color: white;
-      font-size: 4rem;
-      font-weight: 900;
-      margin-bottom: 20px;
-    }
-
-    .profile-card h2 {
-      font-size: 1.45rem;
-      margin-bottom: 8px;
-    }
-
-    .profile-card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    section {
-      padding: 70px 0;
-    }
-
-    .section-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 20px;
+      text-transform: uppercase;
+      font-weight: 950;
       margin-bottom: 28px;
     }
 
-    .section-title h2 {
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      letter-spacing: -0.06em;
-      line-height: 1;
+    .hero-subtitle {
+      font-size: 1.08rem;
+      line-height: 1.65;
+      color: var(--text);
+      margin-bottom: 28px;
     }
 
-    .section-title p {
+    .hero-subtitle span,
+    .intro span {
+      color: var(--blue-soft);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      min-width: 190px;
+      min-height: 58px;
+      padding: 0 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      border-radius: 6px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 45px rgba(47, 140, 255, 0.22);
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+      border: 1px solid var(--blue);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 1px solid var(--blue);
+    }
+
+    .intro {
       color: var(--muted);
-      max-width: 460px;
+      line-height: 1.7;
+      font-size: 0.98rem;
+      max-width: 560px;
+      margin-bottom: 34px;
     }
 
-    .grid-3 {
+    .social-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.025);
+      max-width: 650px;
+    }
+
+    .social-bar a {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-right: 1px solid var(--line);
+      color: var(--text);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .social-bar a:last-child {
+      border-right: none;
+    }
+
+    .social-bar a:hover {
+      color: var(--blue-soft);
+      background: rgba(47, 140, 255, 0.08);
+    }
+
+    /* VISUAL HERO */
+    .hero-visual {
+      position: relative;
+      min-height: 520px;
+    }
+
+    .screen-main {
+      position: absolute;
+      right: 40px;
+      top: 95px;
+      width: 620px;
+      max-width: 100%;
+      height: 340px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 18px;
+      background:
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+        linear-gradient(135deg, #0c1828, #0b0d12 50%, #10233d);
+      box-shadow: 0 35px 90px rgba(0, 0, 0, 0.55);
+      overflow: hidden;
+      transform: perspective(900px) rotateY(-10deg) rotateX(4deg);
+    }
+
+    .screen-top {
+      height: 38px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--blue);
+      opacity: 0.8;
+    }
+
+    .screen-content {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      height: calc(100% - 38px);
+    }
+
+    .side-panel {
+      border-right: 1px solid var(--line);
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .side-line {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .side-line.blue {
+      background: rgba(47, 140, 255, 0.72);
+    }
+
+    .game-preview {
+      position: relative;
+      padding: 18px;
+      background:
+        linear-gradient(to bottom, rgba(47, 140, 255, 0.15), rgba(0, 0, 0, 0.1)),
+        radial-gradient(circle at 70% 35%, rgba(103, 183, 255, 0.35), transparent 26%),
+        linear-gradient(135deg, #12243b, #07111f 58%, #000000);
+    }
+
+    .preview-landscape {
+      height: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background:
+        linear-gradient(to top, rgba(0, 0, 0, 0.45), transparent),
+        linear-gradient(135deg, #203952, #0b1524 48%, #29466a);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .preview-landscape::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 120px;
+      background: rgba(255, 255, 255, 0.08);
+      bottom: -42px;
+      left: 30px;
+      transform: rotate(-8deg);
+      border-radius: 50%;
+    }
+
+    .preview-landscape::after {
+      content: "GAME PROJECT PREVIEW";
+      position: absolute;
+      left: 22px;
+      bottom: 18px;
+      color: white;
+      letter-spacing: 0.16em;
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .floating-card {
+      position: absolute;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 14px;
+      background: rgba(8, 17, 31, 0.88);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
+    }
+
+    .card-blueprint {
+      left: 20px;
+      top: 178px;
+      width: 230px;
+      height: 150px;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 18px 18px;
+      transform: rotate(-4deg);
+    }
+
+    .node {
+      position: absolute;
+      width: 76px;
+      height: 28px;
+      border: 1px solid var(--blue);
+      background: rgba(47, 140, 255, 0.12);
+      border-radius: 6px;
+    }
+
+    .node.n1 { left: 24px; top: 34px; }
+    .node.n2 { right: 25px; top: 66px; }
+    .node.n3 { left: 78px; bottom: 24px; }
+
+    .card-mini {
+      right: 6px;
+      top: 245px;
+      width: 250px;
+      height: 132px;
+      background:
+        radial-gradient(circle at 75% 35%, rgba(47, 140, 255, 0.55), transparent 28%),
+        linear-gradient(135deg, #101b2c, #02050a);
+      transform: rotate(5deg);
+    }
+
+    .badge {
+      position: absolute;
+      right: 30px;
+      top: 26px;
+      width: 160px;
+      height: 160px;
+      border: 1px solid var(--blue);
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 900;
+      font-size: 0.82rem;
+    }
+
+    .badge span {
+      color: var(--blue-soft);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .badge::before {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: var(--blue);
+      left: 4px;
+      top: 24px;
+    }
+
+    /* PROJECTS */
+    section {
+      padding: 44px 0 80px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .section-heading::before {
+      content: "";
+      width: 32px;
+      height: 3px;
+      background: var(--blue);
+    }
+
+    .projects-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--soft);
-      border-radius: 26px;
-      padding: 24px;
-      box-shadow: 0 12px 40px rgba(38, 33, 29, 0.07);
-    }
-
-    .card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 10px;
-    }
-
-    .card p,
-    .card li {
-      color: var(--muted);
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
-    }
-
-    .pill {
-      background: #f1e3d2;
-      color: var(--accent-dark);
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 0.8rem;
-      font-weight: 800;
-    }
-
-    .project {
+    .project-card {
+      min-height: 180px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
       overflow: hidden;
-      padding: 0;
-    }
-
-    .project-image {
-      height: 210px;
-      background: linear-gradient(135deg, #30261e, #c96f3c 55%, #f0c28f);
-      display: grid;
-      place-items: center;
-      color: white;
-      font-size: 2.6rem;
-      font-weight: 900;
-      letter-spacing: -0.05em;
-    }
-
-    .project-content {
-      padding: 24px;
-    }
-
-    .project-links {
-      display: flex;
-      gap: 10px;
-      margin-top: 18px;
-      flex-wrap: wrap;
-    }
-
-    .mini-link {
-      border: 1px solid var(--soft);
-      background: var(--paper);
-      padding: 9px 12px;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: 0.88rem;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 14px;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 22px;
-      padding: 22px;
-      border-radius: 22px;
+      position: relative;
       background: var(--card);
-      border: 1px solid var(--soft);
     }
 
-    .date {
-      color: var(--accent-dark);
+    .project-thumb {
+      height: 100%;
+      min-height: 180px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background:
+        linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 65%),
+        linear-gradient(135deg, #1b2f4a, #07111f 55%, #000000);
+    }
+
+    .project-card:nth-child(2) .project-thumb {
+      background:
+        linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 65%),
+        linear-gradient(135deg, #1c2230, #0b1220 55%, #143761);
+    }
+
+    .project-card:nth-child(3) .project-thumb {
+      background:
+        linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 65%),
+        linear-gradient(135deg, #10243d, #06101e 55%, #1c5a9e);
+    }
+
+    .project-card h3 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 7px;
+    }
+
+    .project-card .category {
+      color: var(--blue-soft);
+      font-size: 0.78rem;
+      text-transform: uppercase;
       font-weight: 900;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
     }
 
-    .contact-box {
-      background: var(--ink);
-      color: white;
-      border-radius: 34px;
-      padding: 42px;
+    .project-card p {
+      color: var(--text);
+      font-size: 0.9rem;
+      max-width: 90%;
+    }
+
+    .project-card .arrow {
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      color: var(--blue);
+      font-size: 1.8rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 28px;
-      align-items: center;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 22px;
     }
 
-    .contact-box p {
-      color: #d6ccc2;
-      margin-top: 10px;
+    .info-card {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: 10px;
+      padding: 28px;
     }
 
-    .contact-box .button {
-      background: white;
-      color: var(--ink);
+    .info-card h3 {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    .info-card p,
+    .info-card li {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .info-card ul {
+      padding-left: 18px;
     }
 
     footer {
       padding: 34px 0;
+      border-top: 1px solid var(--line);
       color: var(--muted);
-      border-top: 1px solid var(--soft);
+      text-align: center;
     }
 
-    @media (max-width: 850px) {
-      .hero,
-      .grid-2,
-      .grid-3,
-      .contact-box {
+    @media (max-width: 980px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 430px;
+      }
+
+      .projects-grid,
+      .about-grid {
         grid-template-columns: 1fr;
       }
 
       .nav-links {
-        display: none;
+        gap: 20px;
       }
+    }
 
-      .profile-card {
-        transform: none;
-      }
-
-      .section-title {
-        align-items: start;
+    @media (max-width: 700px) {
+      nav {
+        align-items: flex-start;
         flex-direction: column;
+        padding: 18px 0;
+        gap: 18px;
       }
 
-      .timeline-item {
-        grid-template-columns: 1fr;
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        gap: 22px;
+        font-size: 0.72rem;
+      }
+
+      .nav-links a {
+        padding: 8px 0;
+        white-space: nowrap;
+      }
+
+      .nav-links .active::after {
+        bottom: 0;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .hero-title {
+        font-size: 3.2rem;
+      }
+
+      .social-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .social-bar a:nth-child(2) {
+        border-right: none;
+      }
+
+      .social-bar a:nth-child(1),
+      .social-bar a:nth-child(2) {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .screen-main {
+        right: 0;
+        top: 110px;
+      }
+
+      .badge {
+        width: 120px;
+        height: 120px;
+        font-size: 0.64rem;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="container">
       <nav>
-        <a href="#inicio" class="logo">TuNombre.dev</a>
+        <a class="brand" href="#home">
+          <div class="logo-box">TN</div>
+          <div>
+            <h1>Tu Nombre</h1>
+            <p>Game Design & Production</p>
+          </div>
+        </a>
+
         <div class="nav-links">
-          <a href="#sobre-mi">Sobre mí</a>
-          <a href="#proyectos">Proyectos</a>
-          <a href="#experiencia">Experiencia</a>
-          <a href="#contacto">Contacto</a>
+          <a class="active" href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="assets/CV-TuNombre.pdf" target="_blank">CV</a>
+          <a href="mailto:tuemail@email.com">Contact</a>
         </div>
       </nav>
     </div>
   </header>
 
-  <main id="inicio">
+  <main id="home">
     <div class="container hero">
-      <div>
-        <span class="tag">3rd Year Game Design & Development Student · Engineering Intern · Producer / Game Designer</span>
-        <h1>Diseño juegos con estructura, intención y buena producción.</h1>
-        <p>
-          Soy [Tu Nombre], estudiante universitaria de 3º año de Diseño y Desarrollo de Videojuegos
-          y actualmente Engineering Intern en Digital Legends. Mi perfil combina producción,
-          game design, documentación, pensamiento técnico y experiencia práctica en desarrollo.
+      <div class="hero-copy">
+        <p class="eyebrow">Portfolio / Curriculum</p>
+
+        <h2 class="hero-title">
+          Producer &<br />
+          Game Designer
+        </h2>
+
+        <p class="hero-subtitle">
+          3rd Year <span>Video Game Design & Development</span> Student<br />
+          Engineering Intern at <span>Digital Legends</span>
         </p>
 
         <div class="hero-actions">
-          <a class="button primary" href="assets/CV-TuNombre.pdf" target="_blank">Descargar CV</a>
-          <a class="button secondary" href="#proyectos">Ver proyectos</a>
+          <a class="btn btn-primary" href="#projects">View Projects →</a>
+          <a class="btn btn-outline" href="assets/CV-TuNombre.pdf" target="_blank">⬇ Download CV</a>
         </div>
 
-        <div class="socials" style="margin-top: 18px;">
-          <a class="mini-link" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
-          <a class="mini-link" href="https://github.com/" target="_blank">GitHub</a>
-          <a class="mini-link" href="https://itch.io/" target="_blank">itch.io</a>
-          <a class="mini-link" href="https://www.instagram.com/" target="_blank">Instagram</a>
+        <p class="intro">
+          Passionate about creating engaging player experiences through <span>strong production</span>,
+          thoughtful game design and technical problem solving. I am interested in Production & Game Design,
+          with practical experience in development environments and cross-functional teamwork.
+        </p>
+
+        <div class="social-bar">
+          <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+          <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/" target="_blank">GitHub</a>
+          <a href="https://itch.io/" target="_blank">itch.io</a>
         </div>
       </div>
 
-      <aside class="profile-card">
-        <div class="avatar">TN</div>
-        <h2>[Tu Nombre]</h2>
-        <p>Producer / Game Designer</p>
-        <p style="margin-top: 14px;">Estudiante de 3º año de Diseño y Desarrollo de Videojuegos y Engineering Intern en Digital Legends. Interés principal: Production & Game Design con base técnica.</p>
-      </aside>
+      <div class="hero-visual" aria-label="Portfolio visual mockup">
+        <div class="badge">
+          <div>
+            <span>Available</span>
+            For projects<br />& internship
+          </div>
+        </div>
+
+        <div class="floating-card card-blueprint">
+          <div class="node n1"></div>
+          <div class="node n2"></div>
+          <div class="node n3"></div>
+        </div>
+
+        <div class="screen-main">
+          <div class="screen-top">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+          <div class="screen-content">
+            <div class="side-panel">
+              <div class="side-line blue"></div>
+              <div class="side-line"></div>
+              <div class="side-line"></div>
+              <div class="side-line blue"></div>
+              <div class="side-line"></div>
+            </div>
+            <div class="game-preview">
+              <div class="preview-landscape"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="floating-card card-mini"></div>
+      </div>
     </div>
 
-    <section id="sobre-mi">
+    <section id="projects">
       <div class="container">
-        <div class="section-title">
-          <h2>Sobre mí</h2>
-          <p>Una sección breve para explicar quién eres, qué buscas y qué aportas a un equipo de videojuegos.</p>
-        </div>
+        <h2 class="section-heading">Featured Projects</h2>
 
-        <div class="grid-3">
-          <article class="card">
-            <h3>Perfil</h3>
+        <div class="projects-grid">
+          <a class="project-card" href="#" target="_blank">
+            <div class="project-thumb">
+              <h3>Project Name 01</h3>
+              <div class="category">Production / Game Design</div>
+              <p>Brief description of the game, your role, team size and main contribution.</p>
+              <div class="arrow">→</div>
+            </div>
+          </a>
+
+          <a class="project-card" href="#" target="_blank">
+            <div class="project-thumb">
+              <h3>Project Name 02</h3>
+              <div class="category">Systems Design</div>
+              <p>Prototype, academic project, game jam or personal work with a playable link.</p>
+              <div class="arrow">→</div>
+            </div>
+          </a>
+
+          <a class="project-card" href="#" target="_blank">
+            <div class="project-thumb">
+              <h3>Project Name 03</h3>
+              <div class="category">Documentation / UX</div>
+              <p>GDD, HLDD, postmortem, pitch deck or another design/production document.</p>
+              <div class="arrow">→</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-heading">About Me</h2>
+
+        <div class="about-grid">
+          <article class="info-card">
+            <h3>Profile</h3>
             <p>
-              Me interesa crear experiencias claras, expresivas y bien organizadas. Como estudiante de 3º año y Engineering Intern, me gusta trabajar entre diseño, producción y desarrollo técnico para convertir ideas en prototipos y demos jugables.
+              I am a 3rd year university student in Video Game Design and Development,
+              currently working as an Engineering Intern at Digital Legends.
             </p>
           </article>
 
-          <article class="card">
-            <h3>Qué hago</h3>
-            <ul style="padding-left: 18px;">
-              <li>Documentación: GDD, HLDD, roadmaps y sprints.</li>
-              <li>Diseño de mecánicas, niveles y experiencia de usuario.</li>
-              <li>Planificación, seguimiento y comunicación de equipo.</li>
+          <article class="info-card">
+            <h3>Focus</h3>
+            <p>
+              My main interests are Production, Game Design, documentation, planning,
+              player experience and communication between design and engineering teams.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <h3>Skills</h3>
+            <ul>
+              <li>Production planning and sprint organization</li>
+              <li>Game design documentation: GDD / HLDD</li>
+              <li>Unity, Unreal Engine, GitHub and prototyping</li>
             </ul>
           </article>
-
-          <article class="card">
-            <h3>Busco</h3>
-            <p>
-              Oportunidades junior, colaboraciones y proyectos donde pueda seguir creciendo hacia Production & Game Design, aportando organización, criterio de diseño, comunicación de equipo y una base técnica reforzada por mis prácticas en Digital Legends.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="proyectos">
-      <div class="container">
-        <div class="section-title">
-          <h2>Proyectos</h2>
-          <p>Aquí puedes añadir juegos, prototipos, documentos, builds, repositorios, vídeos o publicaciones.</p>
-        </div>
-
-        <div class="grid-2">
-          <article class="card project">
-            <div class="project-image">01</div>
-            <div class="project-content">
-              <h3>Nombre del juego / proyecto</h3>
-              <p>
-                Breve descripción del proyecto: género, objetivo, rol dentro del equipo y qué parte desarrollaste.
-                Ejemplo: plataforma 3D con mecánicas de tinta, exploración y habilidades por color.
-              </p>
-              <div class="pill-row">
-                <span class="pill">Producer</span>
-                <span class="pill">Game Design</span>
-                <span class="pill">Unity</span>
-                <span class="pill">GDD</span>
-              </div>
-              <div class="project-links">
-                <a class="mini-link" href="#" target="_blank">Ver build</a>
-                <a class="mini-link" href="#" target="_blank">GitHub</a>
-                <a class="mini-link" href="#" target="_blank">Documentación</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card project">
-            <div class="project-image">02</div>
-            <div class="project-content">
-              <h3>Prototipo / Game Jam</h3>
-              <p>
-                Explica el reto, el tiempo de desarrollo, tu aportación y una métrica interesante:
-                tamaño del equipo, duración, herramientas usadas o aprendizajes clave.
-              </p>
-              <div class="pill-row">
-                <span class="pill">Level Design</span>
-                <span class="pill">Narrative</span>
-                <span class="pill">Itch.io</span>
-              </div>
-              <div class="project-links">
-                <a class="mini-link" href="#" target="_blank">Itch.io</a>
-                <a class="mini-link" href="#" target="_blank">Trailer</a>
-                <a class="mini-link" href="#" target="_blank">Postmortem</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="habilidades">
-      <div class="container">
-        <div class="section-title">
-          <h2>Skills</h2>
-          <p>Divide tus habilidades en producción, diseño y herramientas para que sea fácil de leer.</p>
-        </div>
-
-        <div class="grid-3">
-          <article class="card">
-            <h3>Producción</h3>
-            <div class="pill-row">
-              <span class="pill">Roadmaps</span>
-              <span class="pill">Sprints</span>
-              <span class="pill">Prioridades</span>
-              <span class="pill">Retrospectivas</span>
-              <span class="pill">Trello / Notion</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <h3>Game Design</h3>
-            <div class="pill-row">
-              <span class="pill">GDD</span>
-              <span class="pill">HLDD</span>
-              <span class="pill">Mecánicas</span>
-              <span class="pill">UX</span>
-              <span class="pill">Balance</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <h3>Herramientas</h3>
-            <div class="pill-row">
-              <span class="pill">Unity</span>
-              <span class="pill">Unreal</span>
-              <span class="pill">FMOD</span>
-              <span class="pill">GitHub</span>
-              <span class="pill">Figma</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="experiencia">
-      <div class="container">
-        <div class="section-title">
-          <h2>Experiencia</h2>
-          <p>Puedes usar esta zona para formación, proyectos académicos, prácticas, game jams o trabajos.</p>
-        </div>
-
-        <div class="timeline">
-          <article class="timeline-item">
-            <div class="date">2026 · Actual</div>
-            <div>
-              <h3>Engineering Intern · Digital Legends</h3>
-              <p>Prácticas profesionales en entorno de desarrollo de videojuegos, reforzando mi base técnica, mi comprensión de pipelines reales y mi capacidad para comunicarme con perfiles de ingeniería y diseño.</p>
-            </div>
-          </article>
-
-          <article class="timeline-item">
-            <div class="date">2025 · 2026</div>
-            <div>
-              <h3>3º año · Diseño y Desarrollo de Videojuegos</h3>
-              <p>Formación universitaria centrada en diseño de juegos, producción, documentación, prototipado, motores de juego y presentación de proyectos.
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contacto">
-      <div class="container">
-        <div class="contact-box">
-          <div>
-            <h2>¿Hablamos?</h2>
-            <p>
-              Estoy abierta a prácticas, proyectos junior, colaboraciones y feedback profesional sobre producción y game design.
-            </p>
-          </div>
-          <a class="button" href="mailto:tuemail@email.com">Contactar</a>
         </div>
       </div>
     </section>
@@ -576,7 +816,7 @@
 
   <footer>
     <div class="container">
-      <p>© 2026 [Tu Nombre]. Portfolio de Producer & Game Designer.</p>
+      © 2026 Tu Nombre — Producer & Game Designer Portfolio
     </div>
   </footer>
 </body>
