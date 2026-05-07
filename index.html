@@ -481,27 +481,45 @@
 
     .project-thumb {
       height: 100%;
-      min-height: 180px;
+      min-height: 230px;
       padding: 22px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      background:
-        linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 65%),
-        linear-gradient(135deg, #1b2f4a, #07111f 55%, #000000);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    .project-card:nth-child(2) .project-thumb {
+    .project-thumb::before {
+      content: "";
+      position: absolute;
+      inset: 0;
       background:
-        linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 65%),
-        linear-gradient(135deg, #1c2230, #0b1220 55%, #143761);
+        linear-gradient(to top, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.35) 55%, rgba(0, 0, 0, 0.08)),
+        linear-gradient(135deg, rgba(47, 140, 255, 0.22), transparent 55%);
+      z-index: 0;
     }
 
-    .project-card:nth-child(3) .project-thumb {
-      background:
-        linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 65%),
-        linear-gradient(135deg, #10243d, #06101e 55%, #1c5a9e);
+    .project-thumb > * {
+      position: relative;
+      z-index: 1;
     }
+
+    .project-circles {
+      background-image: url("assets/circles.jpg");
+    }
+
+    .project-dawn {
+      background-image: url("assets/dawn-till-top.jpg");
+    }
+
+    .project-blot {
+      background-image: url("assets/blot.jpg");
+    }
+
+    
 
     .project-card h3 {
       font-size: 1rem;
@@ -655,9 +673,9 @@
     <div class="container">
       <nav>
         <a class="brand" href="#home">
-          <div class="logo-box">TN</div>
+          <div class="logo-box">CMV</div>
           <div>
-            <h1>Tu Nombre</h1>
+            <h1>Carolina Monteagudo</h1>
             <p>Game Design & Production</p>
           </div>
         </a>
@@ -666,8 +684,8 @@
           <a class="active" href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
-          <a href="assets/CV-TuNombre.pdf" target="_blank">CV</a>
-          <a href="mailto:tuemail@email.com">Contact</a>
+          <a href="assets/CV-Carolina.pdf" target="_blank">CV</a>
+          <a href="mailto:carolmontevelez@gmail.com">Contact</a>
         </div>
       </nav>
     </div>
@@ -690,7 +708,7 @@
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="#projects">View Projects →</a>
-          <a class="btn btn-outline" href="assets/CV-TuNombre.pdf" target="_blank">⬇ Download CV</a>
+          <a class="btn btn-outline" href="assets/CV-Carolina.pdf" target="_blank">⬇ Download CV</a>
         </div>
 
         <p class="intro">
@@ -700,10 +718,10 @@
         </p>
 
         <div class="social-bar">
-          <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-          <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
-          <a href="https://github.com/" target="_blank">GitHub</a>
-          <a href="https://itch.io/" target="_blank">itch.io</a>
+          <a href="https://www.instagram.com/carolmonty_/?utm_source=qr&igsh=d3h0MjZtbnd3ZTZq" target="_blank">Instagram</a>
+          <a href="https://www.linkedin.com/in/carolina-monteagudo-velez-45b819279/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/Carolmonty2003" target="_blank">GitHub</a>
+          <a href="https://carolmonty.itch.io" target="_blank">itch.io</a>
         </div>
       </div>
 
@@ -750,29 +768,29 @@
         <h2 class="section-heading">Featured Projects</h2>
 
         <div class="projects-grid">
-          <a class="project-card" href="#" target="_blank">
-            <div class="project-thumb">
-              <h3>Project Name 01</h3>
-              <div class="category">Production / Game Design</div>
-              <p>Brief description of the game, your role, team size and main contribution.</p>
+          <a class="project-card" href="https://cramitus.itch.io/circles-square-dodge-twice" target="_blank">
+            <div class="project-thumb project-circles">
+              <h3>Circles: Square Dodge Twice</h3>
+              <div class="category">Game Jam / Programmer</div>
+              <p>Bullet hell game created during a game jam. The player is trapped inside a ring and must survive one minute while dodging shapes and hazards.</p>
               <div class="arrow">→</div>
             </div>
           </a>
 
-          <a class="project-card" href="#" target="_blank">
-            <div class="project-thumb">
-              <h3>Project Name 02</h3>
-              <div class="category">Systems Design</div>
-              <p>Prototype, academic project, game jam or personal work with a playable link.</p>
+          <a class="project-card" href="https://carolmonty.itch.io/dawn-till-top" target="_blank">
+            <div class="project-thumb project-dawn">
+              <h3>Dawn Till Top</h3>
+              <div class="category">Game Design / Producer</div>
+              <p>Turn-based card game about a rising mage who unlocks cards, abilities and strategies through battles against increasingly difficult enemies.</p>
               <div class="arrow">→</div>
             </div>
           </a>
 
-          <a class="project-card" href="#" target="_blank">
-            <div class="project-thumb">
-              <h3>Project Name 03</h3>
-              <div class="category">Documentation / UX</div>
-              <p>GDD, HLDD, postmortem, pitch deck or another design/production document.</p>
+          <a class="project-card" href="https://carolmonty.itch.io/blot" target="_blank">
+            <div class="project-thumb project-blot">
+              <h3>Blot</h3>
+              <div class="category">Producer / Game Design</div>
+              <p>Platforming and exploration adventure where a small ink creature uses colored inks to overcome obstacles, find lost objects and return home.</p>
               <div class="arrow">→</div>
             </div>
           </a>
@@ -816,7 +834,7 @@
 
   <footer>
     <div class="container">
-      © 2026 Tu Nombre — Producer & Game Designer Portfolio
+      © 2026 Carolina Monteagudo — Producer & Game Designer Portfolio
     </div>
   </footer>
 </body>
