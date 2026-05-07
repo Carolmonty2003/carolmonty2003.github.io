@@ -3,131 +3,581 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi CV</title>
-
+  <title>Tu Nombre | Producer & Game Designer</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    :root {
+      --bg: #f7f2ea;
+      --paper: #fffaf2;
+      --ink: #26211d;
+      --muted: #71675f;
+      --accent: #d97941;
+      --accent-dark: #9e4f2b;
+      --soft: #ead8c6;
+      --card: #fffdf8;
+      --shadow: rgba(38, 33, 29, 0.12);
+    }
+
+    * {
       margin: 0;
-      background: #f4f4f4;
-      color: #222;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    h1 {
-      margin-bottom: 5px;
-      font-size: 40px;
-    }
-
-    h2 {
-      margin-top: 35px;
-      border-bottom: 2px solid #222;
-      padding-bottom: 5px;
-    }
-
-    .subtitle {
-      color: #666;
-      font-size: 18px;
-    }
-
-    .section {
-      margin-top: 20px;
-    }
-
-    .item {
-      margin-bottom: 20px;
-    }
-
-    .item h3 {
-      margin-bottom: 5px;
-    }
-
-    .date {
-      color: #777;
-      font-size: 14px;
-    }
-
-    .skills span {
-      display: inline-block;
-      background: #222;
-      color: white;
-      padding: 8px 12px;
-      border-radius: 20px;
-      margin: 5px;
-      font-size: 14px;
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: radial-gradient(circle at top left, #ffe0c2 0, transparent 32%), var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
     }
 
     a {
-      color: #222;
-      font-weight: bold;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(247, 242, 234, 0.82);
+      border-bottom: 1px solid rgba(38, 33, 29, 0.08);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 1.2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-dark);
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 8px 14px;
+      border: 1px solid var(--soft);
+      border-radius: 999px;
+      color: var(--accent-dark);
+      background: rgba(255, 250, 242, 0.75);
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 5.2rem);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      max-width: 640px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions,
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px var(--shadow);
+    }
+
+    .primary {
+      background: var(--ink);
+      color: white;
+    }
+
+    .secondary {
+      background: var(--paper);
+      border-color: var(--soft);
+      color: var(--ink);
+    }
+
+    .profile-card {
+      background: var(--paper);
+      border: 1px solid var(--soft);
+      border-radius: 32px;
+      padding: 28px;
+      box-shadow: 0 24px 80px var(--shadow);
+      transform: rotate(1.5deg);
+    }
+
+    .avatar {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #2b2520, #d97941);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 4rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .profile-card h2 {
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      letter-spacing: -0.06em;
+      line-height: 1;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 460px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--soft);
+      border-radius: 26px;
+      padding: 24px;
+      box-shadow: 0 12px 40px rgba(38, 33, 29, 0.07);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      background: #f1e3d2;
+      color: var(--accent-dark);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .project {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .project-image {
+      height: 210px;
+      background: linear-gradient(135deg, #30261e, #c96f3c 55%, #f0c28f);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 2.6rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+    }
+
+    .project-content {
+      padding: 24px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .mini-link {
+      border: 1px solid var(--soft);
+      background: var(--paper);
+      padding: 9px 12px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 0.88rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 22px;
+      padding: 22px;
+      border-radius: 22px;
+      background: var(--card);
+      border: 1px solid var(--soft);
+    }
+
+    .date {
+      color: var(--accent-dark);
+      font-weight: 900;
+    }
+
+    .contact-box {
+      background: var(--ink);
+      color: white;
+      border-radius: 34px;
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .contact-box p {
+      color: #d6ccc2;
+      margin-top: 10px;
+    }
+
+    .contact-box .button {
+      background: white;
+      color: var(--ink);
+    }
+
+    footer {
+      padding: 34px 0;
+      color: var(--muted);
+      border-top: 1px solid var(--soft);
+    }
+
+    @media (max-width: 850px) {
+      .hero,
+      .grid-2,
+      .grid-3,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .profile-card {
+        transform: none;
+      }
+
+      .section-title {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
-
 <body>
-  <div class="container">
-    <h1>Tu Nombre</h1>
-    <p class="subtitle">Game Designer / Producer / Estudiante de Desarrollo de Videojuegos</p>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#inicio" class="logo">TuNombre.dev</a>
+        <div class="nav-links">
+          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#experiencia">Experiencia</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-    <p>
-      📍 Barcelona · ✉️ tuemail@email.com · 
-      <a href="https://www.linkedin.com/">LinkedIn</a> · 
-      <a href="https://github.com/">GitHub</a>
-    </p>
+  <main id="inicio">
+    <div class="container hero">
+      <div>
+        <span class="tag">3rd Year Game Design & Development Student · Engineering Intern · Producer / Game Designer</span>
+        <h1>Diseño juegos con estructura, intención y buena producción.</h1>
+        <p>
+          Soy [Tu Nombre], estudiante universitaria de 3º año de Diseño y Desarrollo de Videojuegos
+          y actualmente Engineering Intern en Digital Legends. Mi perfil combina producción,
+          game design, documentación, pensamiento técnico y experiencia práctica en desarrollo.
+        </p>
 
-    <h2>Perfil</h2>
-    <p>
-      Soy estudiante de videojuegos con interés en producción, game design y gestión de proyectos.
-      Me gusta organizar equipos, crear documentación clara y desarrollar experiencias jugables con identidad visual.
-    </p>
+        <div class="hero-actions">
+          <a class="button primary" href="assets/CV-TuNombre.pdf" target="_blank">Descargar CV</a>
+          <a class="button secondary" href="#proyectos">Ver proyectos</a>
+        </div>
 
-    <h2>Experiencia / Proyectos</h2>
+        <div class="socials" style="margin-top: 18px;">
+          <a class="mini-link" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+          <a class="mini-link" href="https://github.com/" target="_blank">GitHub</a>
+          <a class="mini-link" href="https://itch.io/" target="_blank">itch.io</a>
+          <a class="mini-link" href="https://www.instagram.com/" target="_blank">Instagram</a>
+        </div>
+      </div>
 
-    <div class="item">
-      <h3>Blot — Proyecto de videojuego</h3>
-      <p class="date">2025 - 2026</p>
-      <p>
-        Plataforma de exploración con mecánicas de tinta, pintura y habilidades por color.
-        Participé en diseño, documentación, planificación de sprints y producción.
-      </p>
+      <aside class="profile-card">
+        <div class="avatar">TN</div>
+        <h2>[Tu Nombre]</h2>
+        <p>Producer / Game Designer</p>
+        <p style="margin-top: 14px;">Estudiante de 3º año de Diseño y Desarrollo de Videojuegos y Engineering Intern en Digital Legends. Interés principal: Production & Game Design con base técnica.</p>
+      </aside>
     </div>
 
-    <div class="item">
-      <h3>Proyecto de networking multijugador</h3>
-      <p class="date">2026</p>
-      <p>
-        Desarrollo de sistema cliente-servidor con lobby, salas, validaciones y transición a partida.
-      </p>
+    <section id="sobre-mi">
+      <div class="container">
+        <div class="section-title">
+          <h2>Sobre mí</h2>
+          <p>Una sección breve para explicar quién eres, qué buscas y qué aportas a un equipo de videojuegos.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>Perfil</h3>
+            <p>
+              Me interesa crear experiencias claras, expresivas y bien organizadas. Como estudiante de 3º año y Engineering Intern, me gusta trabajar entre diseño, producción y desarrollo técnico para convertir ideas en prototipos y demos jugables.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Qué hago</h3>
+            <ul style="padding-left: 18px;">
+              <li>Documentación: GDD, HLDD, roadmaps y sprints.</li>
+              <li>Diseño de mecánicas, niveles y experiencia de usuario.</li>
+              <li>Planificación, seguimiento y comunicación de equipo.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Busco</h3>
+            <p>
+              Oportunidades junior, colaboraciones y proyectos donde pueda seguir creciendo hacia Production & Game Design, aportando organización, criterio de diseño, comunicación de equipo y una base técnica reforzada por mis prácticas en Digital Legends.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos">
+      <div class="container">
+        <div class="section-title">
+          <h2>Proyectos</h2>
+          <p>Aquí puedes añadir juegos, prototipos, documentos, builds, repositorios, vídeos o publicaciones.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card project">
+            <div class="project-image">01</div>
+            <div class="project-content">
+              <h3>Nombre del juego / proyecto</h3>
+              <p>
+                Breve descripción del proyecto: género, objetivo, rol dentro del equipo y qué parte desarrollaste.
+                Ejemplo: plataforma 3D con mecánicas de tinta, exploración y habilidades por color.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Producer</span>
+                <span class="pill">Game Design</span>
+                <span class="pill">Unity</span>
+                <span class="pill">GDD</span>
+              </div>
+              <div class="project-links">
+                <a class="mini-link" href="#" target="_blank">Ver build</a>
+                <a class="mini-link" href="#" target="_blank">GitHub</a>
+                <a class="mini-link" href="#" target="_blank">Documentación</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-image">02</div>
+            <div class="project-content">
+              <h3>Prototipo / Game Jam</h3>
+              <p>
+                Explica el reto, el tiempo de desarrollo, tu aportación y una métrica interesante:
+                tamaño del equipo, duración, herramientas usadas o aprendizajes clave.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Level Design</span>
+                <span class="pill">Narrative</span>
+                <span class="pill">Itch.io</span>
+              </div>
+              <div class="project-links">
+                <a class="mini-link" href="#" target="_blank">Itch.io</a>
+                <a class="mini-link" href="#" target="_blank">Trailer</a>
+                <a class="mini-link" href="#" target="_blank">Postmortem</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="habilidades">
+      <div class="container">
+        <div class="section-title">
+          <h2>Skills</h2>
+          <p>Divide tus habilidades en producción, diseño y herramientas para que sea fácil de leer.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>Producción</h3>
+            <div class="pill-row">
+              <span class="pill">Roadmaps</span>
+              <span class="pill">Sprints</span>
+              <span class="pill">Prioridades</span>
+              <span class="pill">Retrospectivas</span>
+              <span class="pill">Trello / Notion</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Game Design</h3>
+            <div class="pill-row">
+              <span class="pill">GDD</span>
+              <span class="pill">HLDD</span>
+              <span class="pill">Mecánicas</span>
+              <span class="pill">UX</span>
+              <span class="pill">Balance</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Herramientas</h3>
+            <div class="pill-row">
+              <span class="pill">Unity</span>
+              <span class="pill">Unreal</span>
+              <span class="pill">FMOD</span>
+              <span class="pill">GitHub</span>
+              <span class="pill">Figma</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <div class="container">
+        <div class="section-title">
+          <h2>Experiencia</h2>
+          <p>Puedes usar esta zona para formación, proyectos académicos, prácticas, game jams o trabajos.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="date">2026 · Actual</div>
+            <div>
+              <h3>Engineering Intern · Digital Legends</h3>
+              <p>Prácticas profesionales en entorno de desarrollo de videojuegos, reforzando mi base técnica, mi comprensión de pipelines reales y mi capacidad para comunicarme con perfiles de ingeniería y diseño.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="date">2025 · 2026</div>
+            <div>
+              <h3>3º año · Diseño y Desarrollo de Videojuegos</h3>
+              <p>Formación universitaria centrada en diseño de juegos, producción, documentación, prototipado, motores de juego y presentación de proyectos.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <h2>¿Hablamos?</h2>
+            <p>
+              Estoy abierta a prácticas, proyectos junior, colaboraciones y feedback profesional sobre producción y game design.
+            </p>
+          </div>
+          <a class="button" href="mailto:tuemail@email.com">Contactar</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 [Tu Nombre]. Portfolio de Producer & Game Designer.</p>
     </div>
-
-    <h2>Formación</h2>
-
-    <div class="item">
-      <h3>Grado / Ciclo en Videojuegos</h3>
-      <p class="date">Centro educativo · 2024 - Actualidad</p>
-    </div>
-
-    <h2>Habilidades</h2>
-    <div class="skills">
-      <span>Unity</span>
-      <span>Game Design</span>
-      <span>Producción</span>
-      <span>GitHub</span>
-      <span>FMOD</span>
-      <span>Shader Graph</span>
-      <span>Documentación</span>
-    </div>
-
-    <h2>Idiomas</h2>
-    <p>Español nativo · Inglés intermedio</p>
-  </div>
+  </footer>
 </body>
 </html>
