@@ -273,160 +273,151 @@
     /* VISUAL HERO */
     .hero-visual {
       position: relative;
-      min-height: 520px;
-    }
-
-    .screen-main {
-      position: absolute;
-      right: 40px;
-      top: 95px;
-      width: 620px;
-      max-width: 100%;
-      height: 340px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 18px;
-      background:
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
-        linear-gradient(135deg, #0c1828, #0b0d12 50%, #10233d);
-      box-shadow: 0 35px 90px rgba(0, 0, 0, 0.55);
-      overflow: hidden;
-      transform: perspective(900px) rotateY(-10deg) rotateX(4deg);
-    }
-
-    .screen-top {
-      height: 38px;
+      min-height: 560px;
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 0 16px;
-      border-bottom: 1px solid var(--line);
-      background: rgba(0, 0, 0, 0.25);
+      justify-content: center;
     }
 
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: var(--blue);
-      opacity: 0.8;
-    }
-
-    .screen-content {
-      display: grid;
-      grid-template-columns: 170px 1fr;
-      height: calc(100% - 38px);
-    }
-
-    .side-panel {
-      border-right: 1px solid var(--line);
-      padding: 18px;
-      display: grid;
-      gap: 12px;
-      align-content: start;
-    }
-
-    .side-line {
-      height: 12px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    .side-line.blue {
-      background: rgba(47, 140, 255, 0.72);
-    }
-
-    .game-preview {
-      position: relative;
-      padding: 18px;
-      background:
-        linear-gradient(to bottom, rgba(47, 140, 255, 0.15), rgba(0, 0, 0, 0.1)),
-        radial-gradient(circle at 70% 35%, rgba(103, 183, 255, 0.35), transparent 26%),
-        linear-gradient(135deg, #12243b, #07111f 58%, #000000);
-    }
-
-    .preview-landscape {
-      height: 100%;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background:
-        linear-gradient(to top, rgba(0, 0, 0, 0.45), transparent),
-        linear-gradient(135deg, #203952, #0b1524 48%, #29466a);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .preview-landscape::before {
-      content: "";
+    .visual-glow {
       position: absolute;
-      width: 280px;
-      height: 120px;
-      background: rgba(255, 255, 255, 0.08);
-      bottom: -42px;
-      left: 30px;
-      transform: rotate(-8deg);
+      width: 420px;
+      height: 420px;
       border-radius: 50%;
+      background: radial-gradient(circle, rgba(47, 140, 255, 0.28) 0%, rgba(47, 140, 255, 0.12) 35%, transparent 70%);
+      filter: blur(10px);
     }
 
-    .preview-landscape::after {
-      content: "GAME PROJECT PREVIEW";
+    .profile-core {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      z-index: 2;
+    }
+
+    .core-ring {
       position: absolute;
-      left: 22px;
-      bottom: 18px;
-      color: white;
-      letter-spacing: 0.16em;
-      font-size: 0.72rem;
-      font-weight: 900;
-    }
-
-    .floating-card {
-      position: absolute;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 14px;
-      background: rgba(8, 17, 31, 0.88);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
-    }
-
-    .card-blueprint {
-      left: 20px;
-      top: 178px;
-      width: 230px;
-      height: 150px;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 18px 18px;
-      transform: rotate(-4deg);
-    }
-
-    .node {
-      position: absolute;
-      width: 76px;
-      height: 28px;
-      border: 1px solid var(--blue);
-      background: rgba(47, 140, 255, 0.12);
-      border-radius: 6px;
-    }
-
-    .node.n1 { left: 24px; top: 34px; }
-    .node.n2 { right: 25px; top: 66px; }
-    .node.n3 { left: 78px; bottom: 24px; }
-
-    .card-mini {
-      right: 6px;
-      top: 245px;
-      width: 250px;
-      height: 132px;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(47, 140, 255, 0.55);
       background:
-        radial-gradient(circle at 75% 35%, rgba(47, 140, 255, 0.55), transparent 28%),
-        linear-gradient(135deg, #101b2c, #02050a);
-      transform: rotate(5deg);
+        radial-gradient(circle at center, rgba(47, 140, 255, 0.12), rgba(0, 0, 0, 0.08) 70%);
+      box-shadow: 0 0 40px rgba(47, 140, 255, 0.18);
+    }
+
+    .core-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .core-logo {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      border: 2px solid var(--blue);
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: 0.08em;
+      background: rgba(255, 255, 255, 0.03);
+      box-shadow: 0 10px 30px rgba(47, 140, 255, 0.16);
+    }
+
+    .core-content p {
+      color: var(--text);
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .floating-info {
+      position: absolute;
+      width: 230px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      background: rgba(8, 17, 31, 0.82);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .floating-info:hover {
+      transform: translateY(-4px);
+      border-color: rgba(47, 140, 255, 0.45);
+      background: rgba(8, 17, 31, 0.95);
+    }
+
+    .floating-info h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+
+    .floating-info p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--blue-soft);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .card-role-1 {
+      top: 55px;
+      left: 10px;
+    }
+
+    .card-role-2 {
+      top: 55px;
+      right: -35px;
+    }
+
+    .card-role-3 {
+      bottom: 55px;
+      left: 30px;
+    }
+
+    .tools-card {
+      bottom: -35px;
+      right: -45px;
+      width: 340px;
+    }
+
+    .tools-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tools-list span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(47, 140, 255, 0.12);
+      border: 1px solid rgba(47, 140, 255, 0.25);
+      color: var(--text);
+      font-size: 0.8rem;
+      font-weight: 700;
     }
 
     .badge {
       position: absolute;
-      right: 30px;
-      top: 26px;
+      right: -25px;
+      top: -55px;
       width: 160px;
       height: 160px;
       border: 1px solid var(--blue);
@@ -439,6 +430,7 @@
       letter-spacing: 0.12em;
       font-weight: 900;
       font-size: 0.82rem;
+      z-index: 3;
     }
 
     .badge span {
@@ -631,7 +623,28 @@
       }
 
       .hero-visual {
-        min-height: 430px;
+        min-height: 650px;
+      }
+
+      .card-role-1 {
+        top: 30px;
+        left: 0;
+      }
+
+      .card-role-2 {
+        top: 90px;
+        right: 0;
+      }
+
+      .card-role-3 {
+        bottom: 140px;
+        left: 0;
+      }
+
+      .tools-card {
+        bottom: -10px;
+        right: 0;
+        width: 340px;
       }
 
       .projects-grid,
@@ -697,15 +710,57 @@
         border-bottom: 1px solid var(--line);
       }
 
-      .screen-main {
-        right: 0;
-        top: 110px;
+      .hero-visual {
+        min-height: 760px;
+      }
+
+      .profile-core {
+        width: 220px;
+        height: 220px;
+      }
+
+      .core-logo {
+        width: 90px;
+        height: 90px;
+        font-size: 1.5rem;
+      }
+
+      .floating-info {
+        width: 100%;
+        position: absolute;
+      }
+
+      .card-role-1 {
+        top: 0;
+        left: 0;
+      }
+
+      .card-role-2 {
+        top: 150px;
+        left: 0;
+        right: auto;
+      }
+
+      .card-role-3 {
+        top: 300px;
+        left: 0;
+        bottom: auto;
+      }
+
+      .tools-card {
+        top: 450px;
+        left: 0;
+        right: auto;
+        bottom: auto;
+        width: 100%;
       }
 
       .badge {
         width: 120px;
         height: 120px;
         font-size: 0.64rem;
+        right: 0;
+        top: 560px;
       }
     }
   </style>
@@ -792,7 +847,7 @@
         </div>
       </div>
 
-      <div class="hero-visual" aria-label="Portfolio visual mockup">
+      <div class="hero-visual" aria-label="Portfolio visual">
         <div class="badge">
           <div>
             <span>Available</span>
@@ -800,33 +855,50 @@
           </div>
         </div>
 
-        <div class="floating-card card-blueprint">
-          <div class="node n1"></div>
-          <div class="node n2"></div>
-          <div class="node n3"></div>
-        </div>
+        <div class="visual-glow"></div>
 
-        <div class="screen-main">
-          <div class="screen-top">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-          </div>
-          <div class="screen-content">
-            <div class="side-panel">
-              <div class="side-line blue"></div>
-              <div class="side-line"></div>
-              <div class="side-line"></div>
-              <div class="side-line blue"></div>
-              <div class="side-line"></div>
-            </div>
-            <div class="game-preview">
-              <div class="preview-landscape"></div>
-            </div>
+        <div class="profile-core">
+          <div class="core-ring"></div>
+          <div class="core-content">
+            <div class="core-logo">CMV</div>
+            <p>Producer · Game Designer</p>
           </div>
         </div>
 
-        <div class="floating-card card-mini"></div>
+        <div class="floating-info card-role card-role-1">
+          <span class="tag">Role</span>
+          <h3>Producer</h3>
+          <p>Planning, sprint organization and team coordination.</p>
+        </div>
+
+        <div class="floating-info card-role card-role-2">
+          <span class="tag">Role</span>
+          <h3>Game Designer</h3>
+          <p>Design documentation, mechanics and player experience.</p>
+        </div>
+
+        <div class="floating-info card-role card-role-3">
+          <span class="tag">Experience</span>
+          <h3>Engineering Intern</h3>
+          <p>Currently at Digital Legends, learning from a real production environment.</p>
+        </div>
+
+        <div class="floating-info tools-card">
+          <span class="tag">Tools</span>
+          <div class="tools-list">
+            <span>Unity</span>
+            <span>Unreal</span>
+            <span>GitHub</span>
+            <span>Jira</span>
+            <span>Notion</span>
+            <span>Confluence</span>
+            <span>GetBuild</span>
+            <span>Thunderpants</span>
+            <span>JavaScript</span>
+            <span>C++</span>
+            <span>Excel</span>
+          </div>
+        </div>
       </div>
     </div>
 
