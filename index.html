@@ -1,988 +1,930 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carolina Monteagudo | Producer & Game Designer</title>
+  <title>Carolina Monteagudo | Producer &amp; Game Designer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,600&family=Dancing+Script:wght@500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #0A0A0A;
-      --bg-soft: #07111f;
-      --white: #ffffff;
-      --text: #d7dde8;
-      --muted: #8b95a7;
-      --blue: #2f8cff;
-      --blue-soft: #67b7ff;
-      --line: rgba(255, 255, 255, 0.12);
-      --card: rgba(255, 255, 255, 0.045);
-      --card-strong: rgba(255, 255, 255, 0.075);
+      --bg: #140a0c;
+      --bg-2: #1b0e11;
+      --panel: #1d1013;
+      --panel-2: #241016;
+      --wine: #5c1b25;
+      --wine-2: #7a2531;
+      --cream: #ecdfca;
+      --cream-soft: #d9c8ad;
+      --text: #c6b4a0;
+      --muted: #9a8474;
+      --rose: #cf8f95;
+      --line: rgba(222, 192, 162, 0.13);
+      --line-strong: rgba(222, 192, 162, 0.22);
+      --card: rgba(255, 250, 240, 0.028);
+      --serif: "Playfair Display", Georgia, serif;
+      --script: "Dancing Script", cursive;
+      --sans: "Jost", "Helvetica Neue", Arial, sans-serif;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: var(--sans);
       background:
-        radial-gradient(circle at 72% 22%, rgba(47, 140, 255, 0.18), transparent 32%),
-        radial-gradient(circle at 18% 80%, rgba(47, 140, 255, 0.09), transparent 30%),
+        radial-gradient(1000px 700px at 78% 8%, rgba(122, 37, 49, 0.32), transparent 55%),
+        radial-gradient(900px 800px at 8% 92%, rgba(92, 27, 37, 0.28), transparent 55%),
         var(--bg);
-      color: var(--white);
+      color: var(--text);
       min-height: 100vh;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
-    .container {
-      width: min(1180px, 90%);
-      margin: 0 auto;
-    }
-
-    /* NAV */
-    header {
-      border-bottom: 1px solid var(--line);
-      background: rgba(3, 7, 13, 0.82);
-      backdrop-filter: blur(18px);
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
-
-    nav {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .logo-box {
-      width: 70px;
-      height: 54px;
-      border: 2px solid var(--blue);
-      display: grid;
-      place-items: center;
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--blue-soft);
-      letter-spacing: -0.08em;
-    }
-
-    .brand h1 {
-      font-size: 1.05rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .brand p {
-      font-size: 0.72rem;
-      color: var(--blue-soft);
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 42px;
-      align-items: center;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-    }
-
-    .nav-links a {
-      color: var(--text);
-      position: relative;
-      padding: 32px 0;
-    }
-
-    .nav-links a:hover,
-    .nav-links .active {
-      color: var(--blue-soft);
-    }
-
-    .nav-links .active::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 18px;
-      width: 100%;
-      height: 2px;
-      background: var(--blue);
-    }
-
-    /* HERO */
-    .hero {
-      min-height: calc(100vh - 82px);
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      align-items: center;
-      gap: 54px;
-      padding: 72px 0 42px;
-    }
-
-    .hero-copy {
-      max-width: 590px;
-    }
+    .container { width: min(1220px, 92%); margin: 0 auto; }
 
     .eyebrow {
-      color: var(--blue-soft);
+      font-size: 0.7rem;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.78rem;
-      font-weight: 900;
-      margin-bottom: 22px;
+      color: var(--cream-soft);
+      font-weight: 500;
     }
 
-    .hero-title {
-      font-size: clamp(3.4rem, 8vw, 6.7rem);
-      line-height: 0.88;
-      letter-spacing: -0.07em;
-      text-transform: uppercase;
-      font-weight: 950;
-      margin-bottom: 28px;
+    .star { color: var(--rose); font-style: normal; }
+
+    /* ============ HERO ============ */
+    .hero {
+      position: relative;
+      padding: 34px 0 20px;
     }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .hero-mega {
+      position: relative;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-mega h1 {
+      font-family: var(--serif);
+      font-weight: 800;
+      color: var(--cream);
+      font-size: clamp(3.4rem, 17vw, 15rem);
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Big square photo placeholder overlapping the giant word */
+    .portrait {
+      position: absolute;
+      left: 50%;
+      top: 46%;
+      transform: translate(-50%, -50%);
+      width: clamp(210px, 30vw, 360px);
+      aspect-ratio: 1 / 1;
+      border-radius: 8px;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .photo-box {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(207, 143, 149, 0.14), transparent 60%),
+        linear-gradient(160deg, #3a141b 0%, #1c0d11 100%);
+      border: 1px solid var(--line-strong);
+      color: var(--muted);
+    }
+
+    .photo-box .ph-mono {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      color: var(--rose);
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+    }
+
+    .photo-box .ph-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .hero-bottom {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 40px;
+      align-items: end;
+      margin-top: -18px;
+    }
+
+    .hero-left { max-width: 560px; }
 
     .hero-subtitle {
-      font-size: 1.08rem;
-      line-height: 1.65;
+      font-family: var(--serif);
+      font-weight: 600;
+      color: var(--cream);
+      font-size: clamp(1.5rem, 3.4vw, 2.5rem);
+      line-height: 1.12;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      margin-bottom: 26px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 26px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      color: var(--cream);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .pill:hover {
+      background: var(--wine);
+      border-color: var(--wine-2);
+      transform: translateY(-2px);
+    }
+
+    .signature {
+      font-family: var(--script);
+      color: var(--rose);
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 600;
+      margin-top: 30px;
+      line-height: 1;
+    }
+
+    .hero-right { padding-bottom: 6px; }
+
+    .hero-desc {
       color: var(--text);
-      margin-bottom: 28px;
+      line-height: 1.75;
+      font-size: 0.98rem;
+      font-weight: 300;
+      margin-bottom: 26px;
+      max-width: 430px;
     }
 
-    .hero-subtitle span,
-    .intro span {
-      color: var(--blue-soft);
-    }
+    .hero-desc b { color: var(--cream-soft); font-weight: 500; }
 
-    .hero-actions {
+    .cv-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
-      margin-bottom: 28px;
+      gap: 14px;
     }
 
     .btn {
-      min-width: 175px;
-      min-height: 58px;
-      padding: 0 24px;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 12px;
-      border-radius: 6px;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-size: 0.82rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, filter 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 45px rgba(47, 140, 255, 0.22);
-      filter: brightness(0.72);
-    }
-
-    .btn:active {
-      transform: translateY(0);
-      filter: brightness(0.55);
-    }
-
-    .btn-primary {
-      background: var(--blue);
-      color: white;
-      border: 1px solid var(--blue);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: white;
-      border: 1px solid var(--blue);
-    }
-
-    .intro {
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 0.98rem;
-      max-width: 560px;
-      margin-bottom: 34px;
-    }
-
-    .social-bar {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border: 1px solid var(--line);
+      gap: 10px;
+      padding: 15px 24px;
       border-radius: 8px;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.025);
-      max-width: 650px;
-    }
-
-    .social-bar a {
-      min-height: 58px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      border-right: 1px solid var(--line);
-      color: var(--text);
-      font-size: 0.78rem;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: background 0.2s ease, color 0.2s ease, filter 0.2s ease;
-    }
-
-    .social-bar a:last-child {
-      border-right: none;
-    }
-
-    .social-bar a:hover {
-      color: var(--blue-soft);
-      background: rgba(0, 0, 0, 0.42);
-      filter: brightness(0.8);
-    }
-
-    .social-icon {
-      width: 19px;
-      height: 19px;
-      fill: currentColor;
-      flex-shrink: 0;
-    }
-
-    /* VISUAL HERO */
-    .hero-visual {
-      position: relative;
-      min-height: 560px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .visual-glow {
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(47, 140, 255, 0.28) 0%, rgba(47, 140, 255, 0.12) 35%, transparent 70%);
-      filter: blur(10px);
-    }
-
-    .profile-core {
-      position: relative;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      z-index: 2;
-    }
-
-    .core-ring {
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      border: 1px solid rgba(47, 140, 255, 0.55);
-      background:
-        radial-gradient(circle at center, rgba(47, 140, 255, 0.12), rgba(0, 0, 0, 0.08) 70%);
-      box-shadow: 0 0 40px rgba(47, 140, 255, 0.18);
-    }
-
-    .core-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-    }
-
-    .core-logo {
-      width: 110px;
-      height: 110px;
-      margin: 0 auto 14px;
-      border-radius: 50%;
-      border: 2px solid var(--blue);
-      display: grid;
-      place-items: center;
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--white);
-      letter-spacing: 0.08em;
-      background: rgba(255, 255, 255, 0.03);
-      box-shadow: 0 10px 30px rgba(47, 140, 255, 0.16);
-    }
-
-    .core-content p {
-      color: var(--text);
-      font-size: 0.95rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .floating-info {
-      position: absolute;
-      width: 230px;
-      padding: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 14px;
-      background: rgba(8, 17, 31, 0.82);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .floating-info:hover {
-      transform: translateY(-4px);
-      border-color: rgba(47, 140, 255, 0.45);
-      background: rgba(8, 17, 31, 0.95);
-    }
-
-    .floating-info h3 {
-      font-size: 1rem;
-      margin-bottom: 8px;
-      color: var(--white);
-    }
-
-    .floating-info p {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-
-    .tag {
-      display: inline-block;
-      margin-bottom: 10px;
-      color: var(--blue-soft);
       font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
+      font-weight: 600;
+      transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .card-role-1 {
-      top: 55px;
-      left: 10px;
+    .btn-solid {
+      background: var(--wine);
+      border: 1px solid var(--wine-2);
+      color: var(--cream);
     }
 
-    .card-role-2 {
-      top: 55px;
-      right: -35px;
+    .btn-solid:hover {
+      background: var(--wine-2);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(122, 37, 49, 0.35);
     }
 
-    .card-role-3 {
-      bottom: 55px;
-      left: 30px;
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--line-strong);
+      color: var(--cream-soft);
     }
 
-    .tools-card {
-      bottom: -35px;
-      right: -45px;
-      width: 340px;
+    .btn-ghost:hover {
+      border-color: var(--rose);
+      color: var(--cream);
+      transform: translateY(-2px);
     }
 
-    .tools-list {
+    /* ============ SECTION SHELL ============ */
+    .panel {
+      background:
+        linear-gradient(180deg, rgba(255, 250, 240, 0.02), rgba(255, 250, 240, 0.006)),
+        var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 44px;
+      margin-top: 26px;
+    }
+
+    .sec-head {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .tools-list span {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(47, 140, 255, 0.12);
-      border: 1px solid rgba(47, 140, 255, 0.25);
-      color: var(--text);
-      font-size: 0.8rem;
-      font-weight: 700;
-    }
-
-    .badge {
-      position: absolute;
-      right: -25px;
-      top: -55px;
-      width: 160px;
-      height: 160px;
-      border: 1px solid var(--blue);
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      color: var(--text);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 900;
-      font-size: 0.82rem;
-      z-index: 3;
-    }
-
-    .badge span {
-      color: var(--blue-soft);
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .badge::before {
-      content: "";
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      border-radius: 999px;
-      background: var(--blue);
-      left: 4px;
-      top: 24px;
-    }
-
-    /* PROJECTS */
-    section {
-      padding: 44px 0 80px;
-    }
-
-    .section-heading {
-      display: flex;
+      justify-content: space-between;
       align-items: center;
       gap: 16px;
-      margin-bottom: 24px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .sec-title {
+      font-size: 0.78rem;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      color: var(--cream);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    .section-heading::before {
-      content: "";
-      width: 32px;
-      height: 3px;
-      background: var(--blue);
+    .sec-link {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cream-soft);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.25s ease, gap 0.25s ease;
     }
 
+    .sec-link:hover { color: var(--rose); gap: 16px; }
+
+    /* ============ PROJECTS ============ */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: 20px;
     }
 
     .project-card {
-      min-height: 180px;
+      display: block;
       border: 1px solid var(--line);
-      border-radius: 10px;
-      overflow: hidden;
-      position: relative;
+      border-radius: 14px;
+      padding: 22px;
       background: var(--card);
-      transition: transform 0.2s ease, filter 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
     }
 
     .project-card:hover {
-      transform: translateY(-4px);
-      filter: brightness(0.72);
-      border-color: rgba(47, 140, 255, 0.55);
-      box-shadow: 0 18px 45px rgba(47, 140, 255, 0.16);
+      transform: translateY(-5px);
+      border-color: var(--wine-2);
+      background: rgba(122, 37, 49, 0.08);
     }
 
-    .project-card:active {
-      transform: translateY(0);
-      filter: brightness(0.58);
-    }
-
-    .project-thumb {
-      height: 100%;
-      min-height: 230px;
-      padding: 22px;
+    .pc-top {
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .pc-num {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--rose);
+      font-weight: 600;
+    }
+
+    .pc-name {
+      font-family: var(--serif);
+      font-size: 1.12rem;
+      color: var(--cream);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .pc-cat {
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      padding-left: 2px;
+    }
+
+    .pc-thumb {
+      height: 190px;
+      border-radius: 10px;
       background-size: cover;
       background-position: center;
       position: relative;
       overflow: hidden;
+      border: 1px solid var(--line);
     }
 
-    .project-thumb::before {
+    .pc-thumb::after {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(
-          to top,
-          rgba(0, 0, 0, 0.97) 0%,
-          rgba(0, 0, 0, 0.88) 30%,
-          rgba(0, 0, 0, 0.60) 55%,
-          rgba(0, 0, 0, 0.25) 75%,
-          rgba(0, 0, 0, 0.10) 100%
-        ),
-        linear-gradient(135deg, rgba(47, 140, 255, 0.16), transparent 55%);
-      z-index: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(20, 10, 12, 0.55) 100%);
     }
 
-    .project-thumb > * {
-      position: relative;
-      z-index: 1;
+    .pc-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
     }
 
-    .project-circles {
-      background-image: url("assets/circles.png");
-    }
-
-    .project-dawn {
-      background-image: url("assets/dawn-till-top.png");
-    }
-
-    .project-blot {
-      background-image: url("assets/blot.png");
-    }
-
-    
-
-    .project-card h3 {
-      font-size: 1rem;
+    .pc-tags span {
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 7px;
+      color: var(--cream-soft);
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      padding: 7px 11px;
     }
 
-    .project-card .category {
-      color: var(--blue-soft);
-      font-size: 0.78rem;
+    /* ============ PROCESS + TOOLS ============ */
+    .split {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 22px;
+      margin-top: 26px;
+    }
+
+    .process-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .process-step {
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .process-step:last-child { border-bottom: none; }
+
+    .ps-num {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      color: var(--rose);
+      font-weight: 500;
+      line-height: 1;
+      min-width: 40px;
+    }
+
+    .ps-body h4 {
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      margin-bottom: 8px;
+      color: var(--cream);
+      margin-bottom: 5px;
+      font-weight: 600;
     }
 
-    .project-card p {
-      color: var(--text);
-      font-size: 0.9rem;
-      max-width: 90%;
+    .ps-body p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+      font-weight: 300;
     }
 
-    .project-card .arrow {
-      position: absolute;
-      right: 24px;
-      bottom: 24px;
-      color: var(--blue);
-      font-size: 1.8rem;
+    .process-photo {
+      aspect-ratio: 1 / 1;
+      border-radius: 12px;
+      overflow: hidden;
     }
 
-    /* ABOUT */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .tool {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--card);
+      transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+    }
+
+    .tool:hover {
+      border-color: var(--wine-2);
+      background: rgba(122, 37, 49, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .tool-ic {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 9px;
+      background: rgba(207, 143, 149, 0.08);
+      border: 1px solid var(--line-strong);
+      color: var(--rose);
+    }
+
+    .tool-ic svg { width: 22px; height: 22px; fill: currentColor; }
+    .tool-ic svg text { fill: currentColor; }
+
+    .tool-name {
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      color: var(--cream-soft);
+      font-weight: 500;
+    }
+
+    /* ============ ABOUT (Kind Words slot) ============ */
     .about-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 22px;
+      gap: 20px;
     }
 
-    .info-card {
+    .about-card {
       border: 1px solid var(--line);
-      background: var(--card);
-      border-radius: 10px;
+      border-radius: 14px;
       padding: 28px;
+      background: var(--card);
     }
 
-    .info-card h3 {
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.95rem;
+    .quote-mark {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      line-height: 0.5;
+      color: var(--wine-2);
+      display: block;
       margin-bottom: 14px;
     }
 
-    .info-card p,
-    .info-card li {
-      color: var(--muted);
-      line-height: 1.65;
+    .about-card h4 {
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--rose);
+      font-weight: 600;
+      margin-bottom: 12px;
     }
 
-    .info-card ul {
+    .about-card p { color: var(--text); line-height: 1.7; font-size: 0.92rem; font-weight: 300; }
+
+    .about-card ul { list-style: none; }
+
+    .about-card li {
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 0.9rem;
+      font-weight: 300;
       padding-left: 18px;
+      position: relative;
+      margin-bottom: 8px;
     }
 
-    footer {
-      padding: 34px 0;
-      border-top: 1px solid var(--line);
+    .about-card li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--rose);
+      font-size: 0.7rem;
+      top: 2px;
+    }
+
+    /* ============ CONTACT ============ */
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr 320px;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .contact-head h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      line-height: 1.05;
+      text-transform: uppercase;
+      color: var(--cream);
+      font-weight: 700;
+    }
+
+    .contact-head .amazing {
+      font-family: var(--script);
+      text-transform: none;
+      color: var(--rose);
+      font-weight: 600;
+      display: block;
+      margin-top: 6px;
+    }
+
+    .contact-mid h3 {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--cream);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .contact-mid p {
       color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.9rem;
+      font-weight: 300;
+      margin-bottom: 22px;
+    }
+
+    .contact-links { display: grid; gap: 12px; margin-bottom: 24px; }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 13px 16px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+    }
+
+    .contact-link:hover {
+      border-color: var(--wine-2);
+      background: rgba(122, 37, 49, 0.08);
+      transform: translateX(3px);
+    }
+
+    .contact-link svg { width: 18px; height: 18px; fill: var(--rose); flex-shrink: 0; }
+    .contact-link span { font-size: 0.82rem; letter-spacing: 0.06em; color: var(--cream-soft); }
+
+    .send-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 26px;
+      border-radius: 999px;
+      border: 1px solid var(--wine-2);
+      background: var(--wine);
+      color: var(--cream);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .send-btn:hover {
+      background: var(--wine-2);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(122, 37, 49, 0.35);
+    }
+
+    .contact-photo { border-radius: 14px; overflow: hidden; min-height: 260px; }
+
+    /* ============ FOOTER ============ */
+    footer {
+      margin-top: 26px;
+      padding: 26px 0 40px;
+    }
+
+    .thanks {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
       text-align: center;
+      font-size: 0.74rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--cream-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
     }
 
-    @media (max-width: 980px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-visual {
-        min-height: 650px;
-      }
-
-      .card-role-1 {
-        top: 30px;
-        left: 0;
-      }
-
-      .card-role-2 {
-        top: 90px;
-        right: 0;
-      }
-
-      .card-role-3 {
-        bottom: 140px;
-        left: 0;
-      }
-
-      .tools-card {
-        bottom: -10px;
-        right: 0;
-        width: 340px;
-      }
-
-      .projects-grid,
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        gap: 20px;
-      }
+    .copyright {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
     }
 
-    @media (max-width: 700px) {
-      .btn {
-        width: 100%;
-      }
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 900px) {
+      .hero-mega h1 { font-size: clamp(2.6rem, 15vw, 6rem); }
+      .portrait { position: relative; left: auto; top: auto; transform: none; margin: 18px auto 0; }
+      .hero-bottom { grid-template-columns: 1fr; gap: 28px; margin-top: 12px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .split { grid-template-columns: 1fr; }
+      .process-inner { grid-template-columns: 1fr; }
+      .process-photo { max-width: 320px; margin: 0 auto; }
+      .about-grid { grid-template-columns: 1fr; }
+      .contact { grid-template-columns: 1fr; }
+      .panel { padding: 30px 24px; }
+    }
 
-      .hero-actions {
-        width: 100%;
-      }
-
-      nav {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 18px 0;
-        gap: 18px;
-      }
-
-      .nav-links {
-        width: 100%;
-        overflow-x: auto;
-        gap: 22px;
-        font-size: 0.72rem;
-      }
-
-      .nav-links a {
-        padding: 8px 0;
-        white-space: nowrap;
-      }
-
-      .nav-links .active::after {
-        bottom: 0;
-      }
-
-      .hero {
-        padding-top: 48px;
-      }
-
-      .hero-title {
-        font-size: 3.2rem;
-      }
-
-      .social-bar {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .social-bar a:nth-child(2) {
-        border-right: none;
-      }
-
-      .social-bar a:nth-child(1),
-      .social-bar a:nth-child(2) {
-        border-bottom: 1px solid var(--line);
-      }
-
-      /* HERO VISUAL MOBILE FIX */
-      .hero-visual {
-        min-height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-        gap: 16px;
-        padding-top: 10px;
-      }
-
-      .visual-glow,
-      .profile-core {
-        display: none;
-      }
-
-      .floating-info {
-        position: relative;
-        width: 100%;
-        left: auto;
-        right: auto;
-        top: auto;
-        bottom: auto;
-      }
-
-      .card-role-1 {
-        order: 1;
-      }
-
-      .card-role-2 {
-        order: 2;
-      }
-
-      .card-role-3 {
-        order: 3;
-      }
-
-      .tools-card {
-        order: 4;
-        width: 100%;
-      }
-
-      .badge {
-        order: 5;
-        position: relative;
-        width: 100%;
-        min-height: 72px;
-        height: auto;
-        right: auto;
-        top: auto;
-        border-radius: 14px;
-        font-size: 0.72rem;
-        margin-top: 4px;
-        padding: 18px 16px;
-      }
-
-      .badge::before {
-        left: 14px;
-        top: 14px;
-      }
+    @media (max-width: 560px) {
+      .tools-grid { grid-template-columns: 1fr; }
+      .cv-buttons .btn { flex: 1; justify-content: center; }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <a class="brand" href="#home">
-          <div class="logo-box">CMV</div>
-          <div>
-            <h1>Carolina Monteagudo</h1>
-            <p>Game Design & Production</p>
-          </div>
-        </a>
+  <!-- ============ HERO ============ -->
+  <header class="container hero" id="home">
+    <div class="hero-top">
+      <span class="eyebrow">Student</span>
+      <span class="eyebrow">Game Design Portfolio</span>
+    </div>
 
-        <div class="nav-links">
-          <a class="active" href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#cv">CV</a>
-          <a href="mailto:carolmontevelez@gmail.com">Contact</a>
+    <div class="hero-mega">
+      <h1>Portfolio</h1>
+      <div class="portrait">
+        <div class="photo-box">
+          <div>
+            <div class="ph-mono">CMV</div>
+            <div class="ph-label">Your photo here</div>
+          </div>
         </div>
-      </nav>
+      </div>
+    </div>
+
+    <div class="hero-bottom">
+      <div class="hero-left">
+        <h2 class="hero-subtitle">Producer &amp;<br />Game Designer</h2>
+        <a class="pill" href="#contact">Available for projects <span class="star">✦</span></a>
+        <div class="signature">Carolina Monteagudo</div>
+      </div>
+
+      <div class="hero-right">
+        <p class="hero-desc">
+          Passionate about creating engaging player experiences through <b>strong production</b>,
+          thoughtful game design and technical problem solving. I am interested in Production &amp;
+          Game Design, with practical experience in development environments and cross-functional teamwork.
+        </p>
+        <div class="cv-buttons">
+          <a class="btn btn-solid" href="assets/CV_Carolina_Producer.pdf" target="_blank" rel="noopener">Producer CV</a>
+          <a class="btn btn-ghost" href="assets/CV_Carolina_GameDesign.pdf" target="_blank" rel="noopener">Game Design CV</a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main id="home">
-    <div class="container hero">
-      <div class="hero-copy">
-        <p class="eyebrow">Portfolio / Curriculum</p>
-
-        <h2 class="hero-title">
-          Producer &<br />
-          Game Designer
-        </h2>
-
-        <p class="hero-subtitle">
-          3rd Year <span>Video Game Design & Development</span> Student<br />
-          Engineering Intern at <span>Digital Legends</span>
-        </p>
-
-        <div class="hero-actions" id="cv">
-          <a class="btn btn-primary" href="#projects">View Projects →</a>
-          <a class="btn btn-outline" href="assets/CV_Carolina_Producer.pdf" target="_blank">⬇ Producer CV</a>
-          <a class="btn btn-outline" href="assets/CV_Carolina_GameDesign.pdf" target="_blank">⬇ Game Design CV</a>
-        </div>
-
-        <p class="intro">
-          Passionate about creating engaging player experiences through <span>strong production</span>,
-          thoughtful game design and technical problem solving. I am interested in Production & Game Design,
-          with practical experience in development environments and cross-functional teamwork.
-        </p>
-
-        <div class="social-bar">
-          <a href="https://www.instagram.com/carolmonty_/?utm_source=qr&igsh=d3h0MjZtbnd3ZTZq" target="_blank" aria-label="Instagram">
-            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2Zm0 2C5.7 4 4 5.7 4 7.8v8.4C4 18.3 5.7 20 7.8 20h8.4c2.1 0 3.8-1.7 3.8-3.8V7.8C20 5.7 18.3 4 16.2 4H7.8Zm8.9 2.2a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" />
-            </svg>
-            Instagram
-          </a>
-
-          <a href="https://www.linkedin.com/in/carolina-monteagudo-velez-45b819279/" target="_blank" aria-label="LinkedIn">
-            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.4 8h4.2v14H.4V8Zm7.1 0h4v1.9h.1c.56-1.06 1.94-2.18 4-2.18 4.28 0 5.07 2.82 5.07 6.48V22h-4.2v-6.95c0-1.66-.03-3.8-2.32-3.8-2.32 0-2.68 1.81-2.68 3.68V22h-4.2V8Z" />
-            </svg>
-            LinkedIn
-          </a>
-
-          <a href="https://github.com/Carolmonty2003" target="_blank" aria-label="GitHub">
-            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.41 7.86 10.94.58.1.79-.25.79-.56v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18a10.86 10.86 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.42.36.78 1.07.78 2.16v3.2c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
-            </svg>
-            GitHub
-          </a>
-
-          <a href="https://carolmonty.itch.io" target="_blank" aria-label="itch.io">
-            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3.13 1.5C2.19 1.5 1.5 2.2 1.5 3.13v3.15c0 1.13.93 2.04 2.08 2.04.94 0 1.56-.5 1.88-1.2.32.7.95 1.2 1.88 1.2.93 0 1.57-.5 1.9-1.2.31.7.95 1.2 1.88 1.2.93 0 1.57-.5 1.89-1.2.32.7.95 1.2 1.88 1.2.93 0 1.56-.5 1.88-1.2.32.7.95 1.2 1.88 1.2 1.15 0 2.09-.91 2.09-2.04V3.13c0-.93-.7-1.63-1.63-1.63H3.13Zm-.3 8.04v7.63c0 2.92 1.58 4.5 4.5 4.5h9.34c2.92 0 4.5-1.58 4.5-4.5V9.54c-.62.48-1.4.76-2.24.76-.93 0-1.76-.33-2.4-.9-.64.57-1.47.9-2.4.9-.94 0-1.77-.33-2.41-.9-.64.57-1.47.9-2.4.9-.94 0-1.77-.33-2.41-.9-.64.57-1.47.9-2.4.9-.84 0-1.62-.28-2.24-.76Zm5.22 3.38c1.05 0 1.72.52 2.22 1.2.5-.68 1.18-1.2 2.23-1.2 1.9 0 3.08 1.58 3.08 3.35 0 2.43-2.13 3.7-5.31 3.7-3.18 0-5.31-1.27-5.31-3.7 0-1.77 1.18-3.35 3.09-3.35Z" />
-            </svg>
-            itch.io
-          </a>
-        </div>
+  <main class="container">
+    <!-- ============ SELECTED PROJECTS ============ -->
+    <section class="panel" id="projects">
+      <div class="sec-head">
+        <span class="sec-title"><span class="star">✦</span> Selected Projects</span>
+        <a class="sec-link" href="https://carolmonty.itch.io" target="_blank" rel="noopener">View all projects →</a>
       </div>
 
-      <div class="hero-visual" aria-label="Portfolio visual">
-        <div class="badge">
+      <div class="projects-grid">
+        <a class="project-card" href="https://cramitus.itch.io/circles-square-dodge-twice" target="_blank" rel="noopener">
+          <div class="pc-top">
+            <span class="pc-num">01</span>
+            <span class="pc-name">Circles: Square Dodge Twice</span>
+          </div>
+          <div class="pc-cat">Game Jam · Programmer</div>
+          <div class="pc-thumb" style="background-image:url('assets/circles.png')"></div>
+          <div class="pc-tags"><span>Game Jam</span><span>Bullet Hell</span><span>Programming</span></div>
+        </a>
+
+        <a class="project-card" href="https://carolmonty.itch.io/dawn-till-top" target="_blank" rel="noopener">
+          <div class="pc-top">
+            <span class="pc-num">02</span>
+            <span class="pc-name">Dawn Till Top</span>
+          </div>
+          <div class="pc-cat">Game Design · Producer</div>
+          <div class="pc-thumb" style="background-image:url('assets/dawn-till-top.png')"></div>
+          <div class="pc-tags"><span>Card Game</span><span>Game Design</span><span>Producer</span></div>
+        </a>
+
+        <a class="project-card" href="https://carolmonty.itch.io/blot" target="_blank" rel="noopener">
+          <div class="pc-top">
+            <span class="pc-num">03</span>
+            <span class="pc-name">Blot</span>
+          </div>
+          <div class="pc-cat">Producer · Game Design</div>
+          <div class="pc-thumb" style="background-image:url('assets/blot.png')"></div>
+          <div class="pc-tags"><span>Platformer</span><span>Producer</span><span>Game Design</span></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS + TOOLS ============ -->
+    <div class="split">
+      <!-- PROCESS (kept as-is; to be replaced by Experience later) -->
+      <section class="panel" style="margin-top:0" id="process">
+        <div class="sec-head">
+          <span class="sec-title"><span class="star">✦</span> My Process</span>
+        </div>
+        <div class="process-inner">
           <div>
-            <span>Available</span>
-            For projects<br />& internship
+            <div class="process-step">
+              <span class="ps-num">01</span>
+              <div class="ps-body"><h4>Discover</h4><p>Understanding your goals, audience and vision.</p></div>
+            </div>
+            <div class="process-step">
+              <span class="ps-num">02</span>
+              <div class="ps-body"><h4>Define</h4><p>Research, analysis and strategy development.</p></div>
+            </div>
+            <div class="process-step">
+              <span class="ps-num">03</span>
+              <div class="ps-body"><h4>Design</h4><p>Crafting mechanics, layouts and player experience.</p></div>
+            </div>
+            <div class="process-step">
+              <span class="ps-num">04</span>
+              <div class="ps-body"><h4>Develop</h4><p>Bringing the design to life with clean production.</p></div>
+            </div>
+            <div class="process-step">
+              <span class="ps-num">05</span>
+              <div class="ps-body"><h4>Deliver</h4><p>Testing, optimization and launch with care.</p></div>
+            </div>
+          </div>
+          <div class="process-photo">
+            <div class="photo-box">
+              <div>
+                <div class="ph-mono">✦</div>
+                <div class="ph-label">Your image here</div>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="visual-glow"></div>
-
-        <div class="profile-core">
-          <div class="core-ring"></div>
-          <div class="core-content">
-            <div class="core-logo">CMV</div>
-            <p>Producer · Game Designer</p>
+      <!-- TOOLS -->
+      <section class="panel" style="margin-top:0" id="tools">
+        <div class="sec-head">
+          <span class="sec-title"><span class="star">✦</span> Tools I Use</span>
+        </div>
+        <div class="tools-grid">
+          <div class="tool">
+            <span class="tool-ic"><svg viewBox="0 0 24 24"><path d="M12 2 3.5 6.75v10.5L12 22l8.5-4.75V6.75L12 2Zm0 2.6 5.9 3.3L12 11.2 6.1 7.9 12 4.6ZM5.5 9.6l5.5 3.1v6.6l-5.5-3.1V9.6Zm13 0v6.6l-5.5 3.1v-6.6l5.5-3.1Z"/></svg></span>
+            <span class="tool-name">Unity</span>
+          </div>
+          <div class="tool">
+            <span class="tool-ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 1.8a8.2 8.2 0 1 1 0 16.4 8.2 8.2 0 0 1 0-16.4Zm0 2.4c-2.7 0-4 2-4.4 3.5.7-.7 1.4-1 2-1 .9 0 1.2.6 1.2 1.6v3c0 .8.3 1.3 1.2 1.3 1.9 0 3.4-1.6 4-3.4-.7.8-1.4 1.2-2 1.2-.7 0-1-.5-1-1.4v-2.9c0-1-.5-1.9-1-1.9Z"/></svg></span>
+            <span class="tool-name">Unreal Engine</span>
+          </div>
+          <div class="tool">
+            <span class="tool-ic"><svg viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.41 7.86 10.94.58.1.79-.25.79-.56v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18a10.86 10.86 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.42.36.78 1.07.78 2.16v3.2c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg></span>
+            <span class="tool-name">GitHub</span>
+          </div>
+          <div class="tool">
+            <span class="tool-ic"><svg viewBox="0 0 24 24"><path d="M11.5 2 3 10.5h8.5V2Zm1 20 8.5-8.5H12.5V22Z"/></svg></span>
+            <span class="tool-name">Jira</span>
+          </div>
+          <div class="tool">
+            <span class="tool-ic"><svg viewBox="0 0 24 24"><text x="12" y="16.5" text-anchor="middle" font-size="13" font-weight="700" font-family="Georgia,serif">N</text><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
+            <span class="tool-name">Notion</span>
+          </div>
+          <div class="tool">
+            <span class="tool-ic"><svg viewBox="0 0 24 24"><path d="M8.5 6.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Zm7 0a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Zm0 2a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7Z"/></svg></span>
+            <span class="tool-name">Confluence</span>
+          </div>
+          <div class="tool">
+            <span class="tool-ic"><svg viewBox="0 0 24 24"><path d="M14.7 2.3a5 5 0 0 0-4.5 6.9L2.6 16.8 5.2 19.4l7.6-7.6a5 5 0 1 0 1.9-9.5Zm.3 2a3 3 0 1 1-1.4 5.7l-.8-.4-7.4 7.4-.4-.4 7.4-7.4-.4-.8A3 3 0 0 1 15 4.3Z"/></svg></span>
+            <span class="tool-name">GetBuild</span>
+          </div>
+          <div class="tool">
+            <span class="tool-ic"><svg viewBox="0 0 24 24"><path d="M13 2 4 13.5h6L9 22l10-12h-6l1-8h-1Z"/></svg></span>
+            <span class="tool-name">Thunderpants</span>
+          </div>
+          <div class="tool">
+            <span class="tool-ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.4"/><text x="12" y="16" text-anchor="middle" font-size="8.5" font-weight="700" font-family="Arial">JS</text></svg></span>
+            <span class="tool-name">JavaScript</span>
+          </div>
+          <div class="tool">
+            <span class="tool-ic"><svg viewBox="0 0 24 24"><text x="11" y="16" text-anchor="middle" font-size="9.5" font-weight="700" font-family="Arial">C++</text><rect x="2.5" y="4" width="19" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
+            <span class="tool-name">C++</span>
+          </div>
+          <div class="tool">
+            <span class="tool-ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4V4Zm2 2v3.3h5.3V6H6Zm7.3 0v3.3H18V6h-4.7ZM6 11.3v3.4h5.3v-3.4H6Zm7.3 0v3.4H18v-3.4h-4.7ZM6 16.7V18h5.3v-1.3H6Zm7.3 0V18H18v-1.3h-4.7Z"/></svg></span>
+            <span class="tool-name">Excel</span>
           </div>
         </div>
-
-        <div class="floating-info card-role card-role-1">
-          <span class="tag">Role</span>
-          <h3>Producer</h3>
-          <p>Planning, sprint organization and team coordination.</p>
-        </div>
-
-        <div class="floating-info card-role card-role-2">
-          <span class="tag">Role</span>
-          <h3>Game Designer</h3>
-          <p>Design documentation, mechanics and player experience.</p>
-        </div>
-
-        <div class="floating-info card-role card-role-3">
-          <span class="tag">Experience</span>
-          <h3>Engineering Intern</h3>
-          <p>Currently at Digital Legends, learning from a real production environment.</p>
-        </div>
-
-        <div class="floating-info tools-card">
-          <span class="tag">Tools</span>
-          <div class="tools-list">
-            <span>Unity</span>
-            <span>Unreal</span>
-            <span>GitHub</span>
-            <span>Jira</span>
-            <span>Notion</span>
-            <span>Confluence</span>
-            <span>GetBuild</span>
-            <span>Thunderpants</span>
-            <span>JavaScript</span>
-            <span>C++</span>
-            <span>Excel</span>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
 
-    <section id="projects">
-      <div class="container">
-        <h2 class="section-heading">Featured Projects</h2>
+    <!-- ============ ABOUT (Kind Words slot) ============ -->
+    <section class="panel" id="about">
+      <div class="sec-head">
+        <span class="sec-title"><span class="star">✦</span> About Me</span>
+      </div>
+      <div class="about-grid">
+        <article class="about-card">
+          <span class="quote-mark">&ldquo;</span>
+          <h4>Profile</h4>
+          <p>
+            I am a 3rd year university student in Video Game Design and Development,
+            currently working as an Engineering Intern at Digital Legends.
+          </p>
+        </article>
 
-        <div class="projects-grid">
-          <a class="project-card" href="https://cramitus.itch.io/circles-square-dodge-twice" target="_blank">
-            <div class="project-thumb project-circles">
-              <h3>Circles: Square Dodge Twice</h3>
-              <div class="category">Game Jam / Programmer</div>
-              <p>Bullet hell game created during a game jam. The player is trapped inside a ring and must survive one minute while dodging shapes and hazards.</p>
-              <div class="arrow">→</div>
-            </div>
-          </a>
+        <article class="about-card">
+          <span class="quote-mark">&ldquo;</span>
+          <h4>Focus</h4>
+          <p>
+            My main interests are Production, Game Design, documentation, planning,
+            player experience and communication between design and engineering teams.
+          </p>
+        </article>
 
-          <a class="project-card" href="https://carolmonty.itch.io/dawn-till-top" target="_blank">
-            <div class="project-thumb project-dawn">
-              <h3>Dawn Till Top</h3>
-              <div class="category">Game Design / Producer</div>
-              <p>Turn-based card game about a rising mage who unlocks cards, abilities and strategies through battles against increasingly difficult enemies.</p>
-              <div class="arrow">→</div>
-            </div>
-          </a>
+        <article class="about-card">
+          <span class="quote-mark">&ldquo;</span>
+          <h4>Skills</h4>
+          <ul>
+            <li>Production planning and sprint organization</li>
+            <li>Game design documentation: GDD / HLDD</li>
+            <li>Unity, Unreal Engine, GitHub and prototyping</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-          <a class="project-card" href="https://carolmonty.itch.io/blot" target="_blank">
-            <div class="project-thumb project-blot">
-              <h3>Blot</h3>
-              <div class="category">Producer / Game Design</div>
-              <p>Platforming and exploration adventure where a small ink creature uses colored inks to overcome obstacles, find lost objects and return home.</p>
-              <div class="arrow">→</div>
-            </div>
+    <!-- ============ CONTACT ============ -->
+    <section class="panel" id="contact">
+      <div class="contact">
+        <div class="contact-head">
+          <h2>Let's create<br />something<span class="amazing">Amazing</span></h2>
+        </div>
+
+        <div class="contact-mid">
+          <h3>I'm currently open for new projects</h3>
+          <p>Let's build something impactful and meaningful together.</p>
+
+          <div class="contact-links">
+            <a class="contact-link" href="https://www.instagram.com/carolmonty_/?utm_source=qr&igsh=d3h0MjZtbnd3ZTZq" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2Zm0 2C5.7 4 4 5.7 4 7.8v8.4C4 18.3 5.7 20 7.8 20h8.4c2.1 0 3.8-1.7 3.8-3.8V7.8C20 5.7 18.3 4 16.2 4H7.8Zm8.9 2.2a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+              <span>@carolmonty_</span>
+            </a>
+            <a class="contact-link" href="https://www.linkedin.com/in/carolina-monteagudo-velez-45b819279/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.4 8h4.2v14H.4V8Zm7.1 0h4v1.9h.1c.56-1.06 1.94-2.18 4-2.18 4.28 0 5.07 2.82 5.07 6.48V22h-4.2v-6.95c0-1.66-.03-3.8-2.32-3.8-2.32 0-2.68 1.81-2.68 3.68V22h-4.2V8Z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a class="contact-link" href="https://github.com/Carolmonty2003" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.41 7.86 10.94.58.1.79-.25.79-.56v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18a10.86 10.86 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.42.36.78 1.07.78 2.16v3.2c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+              <span>Carolmonty2003</span>
+            </a>
+            <a class="contact-link" href="https://carolmonty.itch.io" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.13 1.5C2.19 1.5 1.5 2.2 1.5 3.13v3.15c0 1.13.93 2.04 2.08 2.04.94 0 1.56-.5 1.88-1.2.32.7.95 1.2 1.88 1.2.93 0 1.57-.5 1.9-1.2.31.7.95 1.2 1.88 1.2.93 0 1.57-.5 1.89-1.2.32.7.95 1.2 1.88 1.2.93 0 1.56-.5 1.88-1.2.32.7.95 1.2 1.88 1.2 1.15 0 2.09-.91 2.09-2.04V3.13c0-.93-.7-1.63-1.63-1.63H3.13Zm-.3 8.04v7.63c0 2.92 1.58 4.5 4.5 4.5h9.34c2.92 0 4.5-1.58 4.5-4.5V9.54c-.62.48-1.4.76-2.24.76-.93 0-1.76-.33-2.4-.9-.64.57-1.47.9-2.4.9-.94 0-1.77-.33-2.41-.9-.64.57-1.47.9-2.4.9-.94 0-1.77-.33-2.41-.9-.64.57-1.47.9-2.4.9-.84 0-1.62-.28-2.24-.76Zm5.22 3.38c1.05 0 1.72.52 2.22 1.2.5-.68 1.18-1.2 2.23-1.2 1.9 0 3.08 1.58 3.08 3.35 0 2.43-2.13 3.7-5.31 3.7-3.18 0-5.31-1.27-5.31-3.7 0-1.77 1.18-3.35 3.09-3.35Z"/></svg>
+              <span>carolmonty.itch.io</span>
+            </a>
+          </div>
+
+          <a class="send-btn" href="mailto:carolmontevelez@gmail.com?subject=Let's%20work%20together&body=Hi%20Carolina%2C%0A%0AI%20saw%20your%20portfolio%20and%20I'd%20love%20to%20get%20in%20touch.%0A%0A">
+            Send me a message <span class="star">✦</span>
           </a>
+        </div>
+
+        <div class="contact-photo">
+          <div class="photo-box">
+            <div>
+              <div class="ph-mono">CMV</div>
+              <div class="ph-label">Your photo here</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="about">
-      <div class="container">
-        <h2 class="section-heading">About Me</h2>
-
-        <div class="about-grid">
-          <article class="info-card">
-            <h3>Profile</h3>
-            <p>
-              I am a 3rd year university student in Video Game Design and Development,
-              currently working as an Engineering Intern at Digital Legends.
-            </p>
-          </article>
-
-          <article class="info-card">
-            <h3>Focus</h3>
-            <p>
-              My main interests are Production, Game Design, documentation, planning,
-              player experience and communication between design and engineering teams.
-            </p>
-          </article>
-
-          <article class="info-card">
-            <h3>Skills</h3>
-            <ul>
-              <li>Production planning and sprint organization</li>
-              <li>Game design documentation: GDD / HLDD</li>
-              <li>Unity, Unreal Engine, GitHub and prototyping</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
+    <footer>
+      <div class="thanks"><span class="star">✦</span> Thank you for visiting <span class="star">✦</span></div>
+      <div class="copyright">© 2026 Carolina Monteagudo — Producer &amp; Game Designer Portfolio</div>
+    </footer>
   </main>
-
-  <footer>
-    <div class="container">
-      © 2026 Carolina Monteagudo — Producer & Game Designer Portfolio
-    </div>
-  </footer>
 </body>
 </html>
